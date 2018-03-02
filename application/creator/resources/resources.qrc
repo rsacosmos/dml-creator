@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/resources/">
+        <file>logo.png</file>
+        <file>afdi.png</file>
+    </qresource>
+</RCC>

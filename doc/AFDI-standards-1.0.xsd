@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://domestandards.org/">
+    <xs:element name="show">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="video">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="videoname" type="xs:string"/>
+                            <xs:element name="framerate" type="xs:decimal"/>
+                            <xs:element name="framecount" type="xs:integer"/>
+                            <xs:element minOccurs="0" name="resolution" type="xs:integer"/>
+                            <xs:element name="frames">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" name="stereoscopic">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="left"/>
+                                                    <xs:enumeration value="right"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="framesequence" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="path" type="xs:string"/>
+                                                    <xs:element name="firstframe" type="xs:integer" minOccurs="0"/>
+                                                    <xs:element name="lastframe" type="xs:integer" minOccurs="0"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="audio" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="audioname" type="xs:string"/>
+                            <xs:element name="pictureframerate" type="xs:decimal"/>
+                            <xs:element name="language" type="xs:string"/>
+                            <xs:element name="channel" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="speaker">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="SPEAKER_FRONT_LEFT"/>
+                                                    <xs:enumeration value="SPEAKER_FRONT_CENTER"/>
+                                                    <xs:enumeration value="SPEAKER_FRONT_RIGHT"/>
+                                                    <xs:enumeration value="SPEAKER_LOW_FREQUENCY"/>
+                                                    <xs:enumeration value="SPEAKER_BACK_LEFT"/>
+                                                    <xs:enumeration value="SPEAKER_BACK_RIGHT"/>
+                                                    <xs:enumeration value="SPEAKER_FRONT_LEFT_OF_CENTER"/>
+                                                    <xs:enumeration value="SPEAKER_FRONT_RIGHT_OF_CENTER"/>
+                                                    <xs:enumeration value="SPEAKER_BACK_CENTER"/>
+                                                    <xs:enumeration value="SPEAKER_SIDE_LEFT"/>
+                                                    <xs:enumeration value="SPEAKER_SIDE_RIGHT"/>
+                                                    <xs:enumeration value="SPEAKER_LEFT_HIGH"/>
+                                                    <xs:enumeration value="SPEAKER_RIGHT_HIGH"/>
+                                                    <xs:enumeration value="STEREO_MIX"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="path" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="subtitles" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="path" type="xs:string" minOccurs="0"/>
+                            <xs:element name="language" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="information" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="producer" type="xs:string" minOccurs="0"/>
+                            <xs:element name="copyright" type="xs:string" minOccurs="0"/>
+                            <xs:element name="publicationdate" type="xs:date" minOccurs="0"/>
+                            <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

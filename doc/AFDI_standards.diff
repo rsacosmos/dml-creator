@@ -1,0 +1,14 @@
+2c2
+< <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://domestandards.org/">
+---
+> <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+13c13,15
+<                             <xs:element name="frames">
+---
+>                             <xs:element minOccurs="0" name="colorbitdepth" type="xs:integer"/>
+>                             <xs:element minOccurs="0" name="preview" type="xs:string"/>
+>                             <xs:element name="frames" minOccurs="0" maxOccurs="2">
+63a66
+>                                                     <xs:enumeration value="SPEAKER_ZENITH"/>
+64a68
+>                                                     <xs:enumeration value="MULTI_51_MIX"/>

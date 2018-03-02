@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dmlCreator>
+  <ignoredFileList>
+    <regExp>^.*Thumbs.*</regExp>
+    <regExp>^.*RECYCLE\.BIN.*</regExp>
+  </ignoredFileList>  
+
+  <frames>
+    <sequenceFramePatternList>
+      <regExp>[^\d](\d+)[^\d]</regExp>
+    </sequenceFramePatternList>
+
+    <subSequenceFramesPatternList>
+      <regExp>^(\d+)/</regExp>         <!--  01/foo_000.png 02/foo_000.png 03/foo_000.png-->
+      <regExp>/(\d+)/</regExp>         <!--  bar/01/foo_000.png bar/02/foo_000.png bar/03/foo_000.png-->
+      <regExp>^(\d+[ -_]\d+)/</regExp> <!--  0-1000/foo_000.png 1001-2000/foo_000.png 2001-3000/foo_000.png-->
+      <regExp>/(\d+[ -_]\d+)/</regExp> <!--  bar/0-1000/foo_000.png bar/1001-2000/foo_000.png bar/2001-3000/foo_000.png-->
+    </subSequenceFramesPatternList>
+
+    <stereoscopicTypeList ref="${STEREOSCOPIC_TYPES}">
+      <type ref="STEREOSCOPIC_LEFT">L</type>
+      <type ref="STEREOSCOPIC_LEFT">Left</type>
+      <type ref="STEREOSCOPIC_LEFT">LEFT</type>
+      <type ref="STEREOSCOPIC_RIGHT">R</type>
+      <type ref="STEREOSCOPIC_RIGHT">Right</type>
+      <type ref="STEREOSCOPIC_RIGHT">RIGHT</type>
+    </stereoscopicTypeList>
+
+    <framesPatternList>
+      <regExp>^(${STEREOSCOPIC_TYPES})[^A-Za-z0-9]</regExp>
+      <regExp>[^A-Za-z0-9](${STEREOSCOPIC_TYPES})[^A-Za-z0-9]</regExp>
+    </framesPatternList>
+  </frames>
+
+  <audio>
+    <audioTypeList ref="${SPEAKER_TYPES}">
+      <type ref="SPEAKER_SIDE_LEFT">Left Surround</type>
+      <type ref="SPEAKER_SIDE_LEFT">LeftSurround</type>
+      <type ref="SPEAKER_SIDE_LEFT">SideLeftSurround</type>
+
+      <type ref="SPEAKER_SIDE_RIGHT">Right Surround</type>
+      <type ref="SPEAKER_SIDE_RIGHT">RightSurround</type>
+      <type ref="SPEAKER_SIDE_RIGHT">SideRightSurround</type>
+      <type ref="SPEAKER_LOW_FREQUENCY">LowFrequencyChannel</type>
+      <type ref="SPEAKER_BACK_LEFT">RearLeftSurround</type>
+      <type ref="SPEAKER_BACK_RIGHT">RearRightSurround</type>
+
+      <type ref="SPEAKER_FRONT_LEFT">FrontLeft</type>
+      <type ref="SPEAKER_FRONT_CENTER">CenterFront</type>
+      <type ref="SPEAKER_FRONT_RIGHT">FrontRight</type>
+
+      <type ref="SPEAKER_FRONT_LEFT">Left</type>
+      <type ref="SPEAKER_FRONT_CENTER">Center</type>
+      <type ref="SPEAKER_FRONT_RIGHT">Right</type>
+      <type ref="STEREO_MIX">Stereo</type>
+
+      <type ref="SPEAKER_FRONT_CENTER">Ctr</type>
+      <type ref="SPEAKER_LOW_FREQUENCY">LFE</type>
+      <type ref="SPEAKER_BACK_LEFT">Lsr</type>
+      <type ref="SPEAKER_BACK_RIGHT">Rsr</type>
+      <type ref="SPEAKER_SIDE_LEFT">Lss</type>
+      <type ref="SPEAKER_SIDE_RIGHT">Rss</type>
+
+      <type ref="SPEAKER_LOW_FREQUENCY">Lf</type>
+      <type ref="SPEAKER_LOW_FREQUENCY">LF</type>
+      <type ref="SPEAKER_SIDE_RIGHT">Rs</type>
+      <type ref="SPEAKER_LEFT_HIGH">Lh</type>
+      <type ref="SPEAKER_RIGHT_HIGH">Rh</type>
+      <type ref="SPEAKER_BACK_LEFT">Lb</type>
+      <type ref="SPEAKER_FRONT_LEFT_OF_CENTER">Lc</type>
+      <type ref="SPEAKER_FRONT_RIGHT_OF_CENTER">Rc</type>
+      <type ref="SPEAKER_BACK_CENTER">Bc</type>
+      <type ref="SPEAKER_BACK_RIGHT">Rb</type>
+      <type ref="SPEAKER_SIDE_LEFT">Ls</type> 
+
+      <type ref="SPEAKER_FRONT_LEFT">L</type>
+      <type ref="SPEAKER_FRONT_CENTER">C</type>
+      <type ref="SPEAKER_FRONT_RIGHT">R</type>
+    </audioTypeList>
+
+    <audioPatternList>
+      <regExp>^(${SPEAKER_TYPES})[^A-Za-z0-9]</regExp>
+      <regExp>[^A-Za-z0-9](${SPEAKER_TYPES})[^A-Za-z0-9]</regExp>
+    </audioPatternList>
+  </audio>
+
+  <languagePatternList>
+    <regExp>^(\w\w_\w\w)[^A-Za-z0-9]</regExp>            <!--  ar_TN/subtitles.srt ar_TN/audio.wav ar_TN_subtitles.srt ar_TN_audio.wav-->
+    <regExp>[^A-Za-z0-9](\w\w_\w\w)[^A-Za-z0-9]</regExp> <!--  /ar_TN/subtitles.srt /ar_TN/audio.wav _ar_TN_subtitles.srt _ar_TN_audio.wav-->
+    <regExp>^(\w{3,})[^A-Za-z0-9]</regExp>               <!--  Arabic/subtitles.srt Arabic/audio.wav Arabic_subtitles.srt Arabic_audio.wav--> 
+    <regExp>[^A-Za-z0-9](\w{3,})[^A-Za-z0-9]</regExp>    <!--  /Arabic/subtitles.srt /Arabic/audio.wav _Arabic_subtitles.srt _Arabic_audio.wav--> 
+    <regExp>^(\w{2,2})[^A-Za-z0-9]</regExp>              <!--  AR/subtitles.srt AR/audio.wav ar_subtitles.srt ar_audio.wav-->
+    <regExp>[^A-Za-z0-9](\w{2,2})[^A-Za-z0-9]</regExp>   <!--  /AR/subtitles.srt /AR/audio.wav _ar_subtitles.srt _ar_audio.wav-->
+  </languagePatternList>  
+
+  <frameratePatternList>
+    <regExp>(\d+)fps</regExp>
+    <regExp>(\d+)bit</regExp>
+  </frameratePatternList>
+
+  <trailerExtensionPattern>^.*\.(mov|avi|mp4)$</trailerExtensionPattern>
+  <trailerExtensionSupported>Video: (*.mov *.avi *.mp4)</trailerExtensionSupported>
+
+  <subtitlesExtensionPattern>^.*\.srt$</subtitlesExtensionPattern>
+  <subtitlesExtensionSupported>Subtitle: (*.srt)</subtitlesExtensionSupported>
+
+  <audioExtensionPattern>^.*\.(ac3|wav|mp3|aif)$</audioExtensionPattern>
+  <audioExtensionSupported>Audio: (*.ac3 *.wav *.mp3 *.aif)</audioExtensionSupported>
+
+  <videoImageExtensionPattern>^.*\.(bmp|gif|ico|jpeg|jpg|mng|pbm|pgm|png|ppm|tga|tif|tiff|xbm|xpm)$</videoImageExtensionPattern>
+  <videoImageExtensionSupported>Image: (*.bmp *.gif *.ico *.jpeg *.jpg *.mng *.pbm *.pgm *.png *.ppm *.tga *.tif *.tiff *.xbm *.xpm)</videoImageExtensionSupported>
+
+  <defaultValueList>
+    <subtitlesLanguage>en</subtitlesLanguage>
+    <audioLanguage>en</audioLanguage>
+    <framerate>30</framerate>
+    <colorBitDepth>24</colorBitDepth>
+  </defaultValueList>
+  <minVideoFramesCount>5</minVideoFramesCount>
+</dmlCreator>
