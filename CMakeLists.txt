@@ -1,15 +1,15 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
-PROJECT(DML)
+project(DML)
 
 # Qt5
-FIND_PACKAGE(Qt5Core)
-FIND_PACKAGE(Qt5Gui)
-FIND_PACKAGE(Qt5Widgets)
-FIND_PACKAGE(Qt5Xml)
-FIND_PACKAGE(Qt5XmlPatterns)
-FIND_PACKAGE(Qt5Multimedia)
-INCLUDE_DIRECTORIES(
+find_package(Qt5Core)
+find_package(Qt5Gui)
+find_package(Qt5Widgets)
+find_package(Qt5Xml)
+find_package(Qt5XmlPatterns)
+find_package(Qt5Multimedia)
+include_directories(
     ${Qt5Core_INCLUDE_DIRS}
     ${Qt5Gui_INCLUDE_DIRS}
     ${Qt5Widgets_INCLUDE_DIRS}
@@ -17,20 +17,20 @@ INCLUDE_DIRECTORIES(
     ${Qt5XmlPatterns_INCLUDE_DIRS}
     ${Qt5Multimedia_INCLUDE_DIRS}
 )
-GET_TARGET_PROPERTY(QtCore_location Qt5::Core LOCATION)
-GET_TARGET_PROPERTY(QtGui_location Qt5::Gui LOCATION)
-GET_TARGET_PROPERTY(QtWidgets_location Qt5::Widgets LOCATION)
-GET_TARGET_PROPERTY(QtXml_location Qt5::Xml LOCATION)
-GET_TARGET_PROPERTY(QtXmlPatterns_location Qt5::XmlPatterns LOCATION)
-GET_TARGET_PROPERTY(QtMultimedia_location Qt5::Multimedia LOCATION)
-GET_TARGET_PROPERTY(QtNetwork_location Qt5::Network LOCATION)
-GET_FILENAME_COMPONENT(Qt5Libs ${QtCore_location} PATH)
-SET(Qt5PluginsDir "${Qt5Libs}/../plugins")
+get_target_property(QtCore_location Qt5::Core LOCATION)
+get_target_property(QtGui_location Qt5::Gui LOCATION)
+get_target_property(QtWidgets_location Qt5::Widgets LOCATION)
+get_target_property(QtXml_location Qt5::Xml LOCATION)
+get_target_property(QtXmlPatterns_location Qt5::XmlPatterns LOCATION)
+get_target_property(QtMultimedia_location Qt5::Multimedia LOCATION)
+get_target_property(QtNetwork_location Qt5::Network LOCATION)
+get_filename_component(Qt5Libs ${QtCore_location} PATH)
+set(Qt5PluginsDir "${Qt5Libs}/../plugins")
 
 # Include and link
-INCLUDE_DIRECTORIES(${DML_SOURCE_DIR}/include)
-LINK_DIRECTORIES(${LIBRARY_OUTPUT_PATH})
+include_directories(${DML_SOURCE_DIR}/include)
+link_directories(${LIBRARY_OUTPUT_PATH})
 
 # Subdirectories
-ADD_SUBDIRECTORY(src)
-ADD_SUBDIRECTORY(application)
+add_subdirectory(src)
+# add_subdirectory(application)

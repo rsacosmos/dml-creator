@@ -1,7 +1,7 @@
 #ifndef __DML_CORE_AUDIO_H__
 #define __DML_CORE_AUDIO_H__
 
-#include "core/Export.h"
+#include "Export.h"
 
 #include <vector>
 #include <map>

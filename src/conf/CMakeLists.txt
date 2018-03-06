@@ -1,40 +1,13 @@
-ADD_DEFINITIONS(-DCONF_LIBRARY)
+# Add CONF_LIBRARY define for export.h
+add_definitions(-DCONF_LIBRARY)
 
-SET(TARGET_NAME Conf)
+file(GLOB HEADERS "${DML_SOURCE_DIR}/include/conf/*.h")
+file(GLOB SOURCES "*.cpp")
 
-SET(HEADER_PATH ${DML_SOURCE_DIR}/include/${TARGET_NAME})
+add_library(dmlConf SHARED ${SOURCES} ${HEADERS})
 
-SET(TARGET_MOC_HEADERS
-
+target_link_libraries(dmlConf
+    Qt5::Core
+    Qt5::Xml
 )
 
-# Headers NOT needing any MOC pass
-SET(TARGET_HEADERS
-    ${TARGET_MOC_HEADERS}
-
-    ${HEADER_PATH}/Export.h
-    ${HEADER_PATH}/Configuration.h
-    ${HEADER_PATH}/ConfigurationManager.h
-    ${HEADER_PATH}/Singleton.h
-)
-
-SET(TARGET_SOURCES
-	Configuration.cpp
-    ConfigurationManager.cpp    
-)
-
-SETUP_SHARED(${TARGET_NAME})
-
-LINK_INTERNAL(${TARGET_TARGETNAME} 
-    ${TARGET_DEFAULT_PREFIX}Core
-)
-
-LINK_WITH_VARIABLES(${TARGET_TARGETNAME}
-    Qt5Core_LIBRARIES
-    Qt5Xml_LIBRARIES
-)
-
-LINK_AGAINST_VLD_IF_NEEDED(${TARGET_TARGETNAME})
-
-INSTALL(FILES ${QtCore_location} DESTINATION ./bin)
-INSTALL(FILES ${QtXml_location} DESTINATION ./bin)

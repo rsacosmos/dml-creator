@@ -4,6 +4,7 @@
 #include "scan/Export.h"
 
 #include <QObject>
+#include <QMutex>
 #include "core/Show.h"
 
 

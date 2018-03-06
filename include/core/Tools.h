@@ -1,7 +1,7 @@
 #ifndef _TOOLS_H
 #define _TOOLS_H
 
-#include "core/Export.h"
+#include "Export.h"
 
 #include <string>
 

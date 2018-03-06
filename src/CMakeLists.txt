@@ -1,6 +1,4 @@
-SET(TARGET_DEFAULT_LABEL_PREFIX "Module")
-
-ADD_SUBDIRECTORY(core)
-ADD_SUBDIRECTORY(conf)
-ADD_SUBDIRECTORY(scan)
-ADD_SUBDIRECTORY(xml)
+# add_subdirectory(core)
+# add_subdirectory(conf)
+add_subdirectory(xml)
+# add_subdirectory(scan)

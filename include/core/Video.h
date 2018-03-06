@@ -1,7 +1,7 @@
 #ifndef __DML_CORE_VIDEO_H__
 #define __DML_CORE_VIDEO_H__
 
-#include "core/Export.h"
+#include "Export.h"
 
 #include <deque>
 

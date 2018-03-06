@@ -1,1 +1,1 @@
-ADD_SUBDIRECTORY(creator)
+add_subdirectory(creator)

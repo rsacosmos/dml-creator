@@ -1,7 +1,7 @@
 #ifndef __DML_CORE_INFORMATION_H__
 #define __DML_CORE_INFORMATION_H__
 
-#include "core/Export.h"
+#include "Export.h"
 
 namespace dml {
 namespace core {
@@ -19,7 +19,7 @@ public:
                _copyright==rhs._copyright &&
                _description==rhs._description &&
                _hasPublicationDate==rhs._hasPublicationDate &&
-               (!_hasPublicationDate | (_publicationDate==rhs._publicationDate));
+               (!_hasPublicationDate || (_publicationDate==rhs._publicationDate));
     }
 
     bool operator==(const Information& rhs) const { return isEqual(rhs); }
@@ -42,11 +42,11 @@ public:
     void clear();
 
 private:
-    std::string     _producer;
-    std::string     _copyright;
-    std::string     _description;
+    std::string _producer;
+    std::string _copyright;
+    std::string _description;
     bool _hasPublicationDate;
-    std::string     _publicationDate;
+    std::string _publicationDate;
 }; // class Information
 
 } // namespace core

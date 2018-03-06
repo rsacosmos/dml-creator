@@ -1,51 +1,14 @@
-ADD_DEFINITIONS(-DXML_LIBRARY)
+# Add XML_LIBRARY define for export.h
+add_definitions(-DXML_LIBRARY)
 
-SET(TARGET_NAME Xml)
+file(GLOB HEADERS "${DML_SOURCE_DIR}/include/xml/*.h")
+file(GLOB SOURCES "*.cpp")
 
-FIND_PACKAGE(libxml2 REQUIRED) # TODO_WHEN_ADDING_A_LIBRARY
+add_library(dmlXml SHARED ${SOURCES} ${HEADERS})
 
-INCLUDE_DIRECTORIES(
-    # ${LIBNAME_INCLUDE_DIR} # TODO_WHEN_ADDING_A_LIBRARY
-    ${LIBXML2_INCLUDE_DIR}
-)
-
-SET(HEADER_PATH ${DML_SOURCE_DIR}/include/${TARGET_NAME})
-
-SET(TARGET_MOC_HEADERS
-
-)
-
-# Headers NOT needing any MOC pass
-SET(TARGET_HEADERS
-    ${TARGET_MOC_HEADERS}
-
-    ${HEADER_PATH}/Export.h
-    ${HEADER_PATH}/Element.h
-    ${HEADER_PATH}/Exporter.h
-    ${HEADER_PATH}/Importer.h
-    ${HEADER_PATH}/Tools.h
-)
-
-SET(TARGET_SOURCES
-    Element.cpp
-    Exporter.cpp
-    Importer.cpp
-    Tools.cpp
-)
-
-SETUP_SHARED(${TARGET_NAME})
-
-LINK_INTERNAL(${TARGET_TARGETNAME} 
-    ${TARGET_DEFAULT_PREFIX}Core
-    ${TARGET_DEFAULT_PREFIX}Conf
-)
-
-LINK_WITH_VARIABLES(${TARGET_TARGETNAME}
-    LIBXML2_LIBRARY
-)
-
-LINK_AGAINST_VLD_IF_NEEDED(${TARGET_TARGETNAME})
-
-INSTALL(FILES "$ENV{LIBXML2_BIN}/libxml2.dll" DESTINATION ./bin)
-INSTALL(FILES "$ENV{ZLIB1_BIN}/zlib1.dll" DESTINATION ./bin)
-
+find_package(libxml2 REQUIRED)
+message(STATUS "LIBXML2_INCLUDE_DIR=${LIBXML2_INCLUDE_DIR}")
+include_directories(${LIBXML2_INCLUDE_DIR})
+message(STATUS "LIBXML2_LIBRARIES=${LIBXML2_LIBRARIES}")
+link_directories(${LIBXML2_LIBRARIES})
+target_link_libraries(dmlXml libxml2)

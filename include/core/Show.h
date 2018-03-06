@@ -1,7 +1,7 @@
 #ifndef __DML_CORE_SHOW_H__
 #define __DML_CORE_SHOW_H__
 
-#include "core/Export.h"
+#include "Export.h"
 
 #include "Subtitles.h"
 #include "Audio.h"
