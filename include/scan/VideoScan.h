@@ -10,7 +10,7 @@
 namespace dml { namespace core { class Frames; }}
 
 namespace dml {
-    namespace scan {
+namespace scan {
 
 class SCAN_EXPORT VideoScan
 {

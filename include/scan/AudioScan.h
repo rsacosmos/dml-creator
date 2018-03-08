@@ -9,7 +9,7 @@
 #include <conf/Configuration.h>
 
 namespace dml {
-    namespace scan {
+namespace scan {
 
 class SCAN_EXPORT AudioScan
 {

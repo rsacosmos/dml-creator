@@ -8,12 +8,11 @@
 #include <conf/Configuration.h>
 
 namespace dml {
-    namespace scan {
+namespace scan {
 
 class SCAN_EXPORT SubtitlesScan
 {
 public:
-
   static bool isSubtitles(const dml::conf::Configuration& configuration, const QString &filename);
 };
 
