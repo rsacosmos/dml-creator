@@ -59,6 +59,7 @@ dml::xml::Element dml::xml::Exporter::toDml(const dml::core::Audio& audio)
         {
             Element speakerElement(SPEAKER_TAGNAME);
 
+            // FIXME Remove the 'conf' dependancy by moving speakers in core
             speakerElement.appendText(dml::conf::Configuration::speakerToString(type));
 
             Element pathElement(PATH_TAGNAME);

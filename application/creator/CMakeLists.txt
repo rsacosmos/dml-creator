@@ -20,6 +20,8 @@ add_executable(Creator
 )
 target_link_libraries(Creator
     Qt5::WinMain
+    Qt5::Core
+    Qt5::Widgets
     dmlScan
     dmlCore
     dmlConf
