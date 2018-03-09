@@ -22,6 +22,8 @@ target_link_libraries(Creator
     Qt5::WinMain
     Qt5::Core
     Qt5::Widgets
+    Qt5::Xml
+    Qt5::XmlPatterns
     dmlScan
     dmlCore
     dmlConf
