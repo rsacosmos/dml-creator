@@ -7,7 +7,7 @@ file(GLOB SOURCES "*.cpp")
 add_library(dmlConf SHARED ${SOURCES} ${HEADERS})
 
 target_link_libraries(dmlConf
-    Qt5::Core
+    Qt5::Core # FIXME ENABLE_GUI have to be enabled to compile the 'conf' module
     Qt5::Xml
 )
 

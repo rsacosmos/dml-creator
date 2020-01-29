@@ -29,6 +29,7 @@ target_link_libraries(Creator
     dmlConf
     dmlXml
 )
+set_target_properties(Creator PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
 
 # install(TARGETS Creator
     # RUNTIME DESTINATION ./bin 
