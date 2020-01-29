@@ -31,3 +31,4 @@
 *.out
 *.app
 build.msvc2015_64/*
+*.db
