@@ -98,7 +98,7 @@ void VideoWidget::setCurrentVideoIndex(int currentIndex)
     {
         _blockSignals(true);
         _ui->nameLineEdit->clear();
-        _ui->framerateSpinBox->setValue(0);
+        _ui->framerateDoubleSpinBox->setValue(0);
         _ui->resolutionSpinBox->setValue(0);
         _ui->colorBitsDepthSpinBox->setValue(0);
         _ui->previewLineEdit->clear();
@@ -116,8 +116,8 @@ void VideoWidget::setCurrentVideoIndex(int currentIndex)
     if (_ui->nameLineEdit->text() != videoName) _ui->nameLineEdit->setText(videoName);
 
     // Frame rate
-    int framerate = static_cast<int>(video.framerate());
-    if (_ui->framerateSpinBox->value() != framerate) _ui->framerateSpinBox->setValue(framerate);
+    double framerate = video.framerate();
+    if (_ui->framerateDoubleSpinBox->value() != framerate) _ui->framerateDoubleSpinBox->setValue(framerate);
 
     // Resolution
     int resolution = static_cast<int>(video.resolution());
@@ -153,7 +153,7 @@ void VideoWidget::_blockSignals(bool blocked)
     _ui->listWidget->blockSignals(blocked);
     _ui->nameLineEdit->blockSignals(blocked);
     _ui->previewLineEdit->blockSignals(blocked);
-    _ui->framerateSpinBox->blockSignals(blocked);
+    _ui->framerateDoubleSpinBox->blockSignals(blocked);
     _ui->resolutionSpinBox->blockSignals(blocked);
     _ui->colorBitsDepthSpinBox->blockSignals(blocked);
     _ui->previewPushButton->blockSignals(blocked);
@@ -166,7 +166,7 @@ void VideoWidget::refreshVideo()
 
     dml::core::Video video;
     video.setVideoName(_ui->nameLineEdit->text().toStdString());
-    video.setFramerate(_ui->framerateSpinBox->value());
+    video.setFramerate(_ui->framerateDoubleSpinBox->value());
     video.setResolution(_ui->resolutionSpinBox->value());
     video.setColorBitsDepth(_ui->colorBitsDepthSpinBox->value());
     video.setPreview(_ui->previewLineEdit->text().toStdString());

@@ -127,7 +127,7 @@ dml::core::Video dml::xml::Importer::fromDml(const Element& videoElement, const 
     video.setVideoName(videoname);
 
     std::string framerate = videoElement.firstChildElement(FRAMERATE_TAGNAME).text();
-    video.setFramerate(Tools::stringToInt(framerate));
+    video.setFramerate(Tools::stringToDouble(framerate));
 
     std::string framecount = videoElement.firstChildElement(FRAMECOUNT_TAGNAME).text();
     video.setFramecount(Tools::stringToInt(framecount));

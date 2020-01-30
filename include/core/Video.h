@@ -10,45 +10,46 @@
 namespace dml {
 namespace core {
 
-
-    class CORE_EXPORT Video
+class CORE_EXPORT Video
 {
 public:
     virtual ~Video();
 
     Video(const std::string &dml = "");
 
+    //videoName
     std::string videoName() const;
-
     void setVideoName(const std::string &videoName);
 
-    unsigned int framerate() const;
+    //framerate
+    double framerate() const;
+    void setFramerate(double framerate);
 
-    void setFramerate(unsigned int framerate);
-
+    //framecount
     unsigned int framecount() const;
-
     void setFramecount(unsigned int framecount);
 
+    //resolution
     unsigned int resolution() const;
-
     void setResolution(unsigned int resolution);
 
+    //colorBitsDepth
     unsigned int colorBitsDepth() const;
-
     void setColorBitsDepth(unsigned int colorBitsDepth);
 
+    //preview
     std::string preview() const;
-
     void setPreview(const std::string &preview);
 
-    void setFramesList(const FramesList& framesList) { _framesList = framesList; }
+    //framesList
     const FramesList& framesList() const { return _framesList; }
+    void setFramesList(const FramesList& framesList) { _framesList = framesList; }
 
+    //helpers
     bool findFramesByType(const Frames::Type& type, Frames& frames) const;
     void addOrReplaceFrames(const Frames& frames);
 
-    // Comparison operators
+    //Comparison operators
     bool operator==(const Video&) const;
     bool operator!=(const Video& rhs) const { return !(operator==(rhs)); }
 
@@ -56,7 +57,7 @@ private:
     void updateFrameCount() const;
 
     std::string _videoName;
-    unsigned int _framerate;
+    double _framerate;
     unsigned int _resolution;
     unsigned int _colorBitsDepth;
     std::string _preview;

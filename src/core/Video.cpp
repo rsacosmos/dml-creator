@@ -25,12 +25,12 @@ void Video::setVideoName(const std::string &title)
     _videoName = title;
 }
 
-unsigned int Video::framerate() const
+double Video::framerate() const
 {
     return _framerate;
 }
 
-void Video::setFramerate(unsigned int framerate)
+void Video::setFramerate(double framerate)
 {
     _framerate = framerate;
 }

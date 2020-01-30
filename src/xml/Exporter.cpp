@@ -202,9 +202,9 @@ dml::xml::Element dml::xml::Exporter::toDml(const dml::core::Video& video)
     videoNameElement.appendText(Tools::escapeText(videoName));
     videoElement.appendElement(videoNameElement);
 
-    int framerate = video.framerate();
+    double framerate = video.framerate();
     Element framerateElement(FRAMERATE_TAGNAME);
-    framerateElement.appendText(Tools::intToString(framerate));
+    framerateElement.appendText(Tools::doubleToString(framerate));
     videoElement.appendElement(framerateElement);
 
     int framecount = video.framecount();

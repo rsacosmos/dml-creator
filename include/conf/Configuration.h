@@ -115,41 +115,41 @@ public:
     static dml::core::Frames::Type framesTypeFromString(const std::string& value);
 
 private:
-    QStringList                         _subSequenceFramesPatternList;
+    QStringList _subSequenceFramesPatternList;
 
-    QStringList                         _ignoredFileList;
-    QStringList                         _sequenceFramePatternList;
-    QStringList                         _languagePatternList;
-    QStringList                         _frameratePatternList;
-    QStringList                         _audioPatternList;
-    QStringList                         _framesPatternList;
+    QStringList _ignoredFileList;
+    QStringList _sequenceFramePatternList;
+    QStringList _languagePatternList;
+    QStringList _frameratePatternList;
+    QStringList _audioPatternList;
+    QStringList _framesPatternList;
     
-    AudioTypeList                       _audioTypeList;
-    FramesTypeList                      _framesTypeList;
+    AudioTypeList _audioTypeList;
+    FramesTypeList _framesTypeList;
 
-    QString                             _subtitlesExtensionPattern;
-    QString                             _audioExtensionPattern;
-    QString                             _videoExtensionPattern;
-    QString                             _trailerExtensionPattern;
+    QString _subtitlesExtensionPattern;
+    QString _audioExtensionPattern;
+    QString _videoExtensionPattern;
+    QString _trailerExtensionPattern;
 
-    QString                             _subtitlesExtensionSupported;
-    QString                             _audioExtensionSupported;
+    QString _subtitlesExtensionSupported;
+    QString _audioExtensionSupported;
     QString                      		_videoImageExtensionSupported;
-    QString                             _trailerExtensionSupported;
+    QString _trailerExtensionSupported;
 
-    QString                             _stereoscopicTypes;
-    QString                             _speakersTypes;
+    QString _stereoscopicTypes;
+    QString _speakersTypes;
 
-    QString                             _stereoscopicTypeListRef;
-    QString                             _speakerTypeListRef;
+    QString _stereoscopicTypeListRef;
+    QString _speakerTypeListRef;
 
-    QString                             _defaultSubtitlesLanguage;
-    QString                             _defaultAudioLanguage;
+    QString _defaultSubtitlesLanguage;
+    QString _defaultAudioLanguage;
 
-    double                              _defaultFramerate;
+    double _defaultFramerate;
 
-    int                                 _defaultColorBitDepth;
-    int                                 _minVideoFramesCount;
+    int _defaultColorBitDepth;
+    int _minVideoFramesCount;
 }; // class Configuration
 
 } // namespace conf
