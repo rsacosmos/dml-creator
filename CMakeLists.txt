@@ -44,3 +44,6 @@ set(CMAKE_DEBUG_POSTFIX "_debug")
 # Subdirectories
 add_subdirectory(src)
 add_subdirectory(application)
+
+enable_testing()
+add_subdirectory(tests)
