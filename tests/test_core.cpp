@@ -68,9 +68,6 @@ void testVideoList()
     show.setVideoList(videoList_2);
     VideoList videoList_3 = show.videoList();
     ASSERT_THROW(!videoList_3.empty());
-
-    // ASSERT_EQUAL(foo, 2.0);
-    // ASSERT_EQUAL(bar, 1.0);
 }
 
 int main(int, char**)
