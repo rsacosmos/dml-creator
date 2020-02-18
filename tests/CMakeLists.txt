@@ -6,4 +6,6 @@ endmacro(add_dml_test name)
 
 add_dml_test(test_core_video)
 add_dml_test(test_core_video_list)
+add_dml_test(test_core_audio)
+add_dml_test(test_core_audio_list)
 
