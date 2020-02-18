@@ -1,3 +1,7 @@
-add_executable(test_core test_core_video)
-target_link_libraries(test_core dmlCore)
-add_test(NAME test_core COMMAND test_core)
+add_executable(test_core_video test_core_video.cpp)
+target_link_libraries(test_core_video dmlCore)
+add_test(NAME test_core_video COMMAND test_core_video)
+
+add_executable(test_core_video_list test_core_video_list.cpp)
+target_link_libraries(test_core_video_list dmlCore)
+add_test(NAME test_core_video_list COMMAND test_core_video_list)

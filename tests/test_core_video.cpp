@@ -52,22 +52,8 @@ void testVideo()
     testFramecount(v1, 24);
     //even invalid values
     testFramecount(v1, 0);
+    testFramecount(v1, -1);
     testFramecount(v1, UINT_MAX);
-}
-
-void testVideoList()
-{
-    Show show;
-
-    VideoList videoList_1 = show.videoList();
-    ASSERT_THROW(videoList_1.empty());
-
-    VideoList videoList_2;
-    Video video;
-    videoList_2.push_back(video);
-    show.setVideoList(videoList_2);
-    VideoList videoList_3 = show.videoList();
-    ASSERT_THROW(!videoList_3.empty());
 }
 
 int main(int, char**)
