@@ -25,6 +25,12 @@ void testFramecount(Video& v, unsigned int framecount)
     ASSERT_EQUAL(v.framecount(), framecount);
 }
 
+void testResolution(Video& v, unsigned int resolution)
+{
+    v.setResolution(resolution);
+    ASSERT_EQUAL(v.resolution(), resolution);
+}
+
 void testVideo()
 {
     Video v1;
@@ -54,13 +60,17 @@ void testVideo()
     testFramecount(v1, 0);
     testFramecount(v1, -1);
     testFramecount(v1, UINT_MAX);
+
+    //resolution default value is 0
+    ASSERT_ALMOST_EQUAL(v1.resolution(), 0);
+    for (int r=1; r<=8192; r*=2) testResolution(v1, r);
+    for (int i = 0; i < 10000; i++) testResolution(v1, rand() % 8192);
 }
 
 int main(int, char**)
 {
     try {
         testVideo();
-        testVideoList();
     }
     catch (std::exception const& e)
     {
